@@ -1,1 +1,0 @@
-# Entretien-technique-D-veloppeur-Fullstack-Delos
