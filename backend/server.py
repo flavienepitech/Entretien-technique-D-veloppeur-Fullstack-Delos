@@ -8,8 +8,8 @@ app = Flask(__name__)
 API_KEY_1=os.getenv("API_KEY_1")
 API_KEY_2="api_key_2"
 
-PROVIDER_1_URL = "https://aimlapi.com/v1/chat/completions"
-PROVIDER_2_URL = "api_provider_url_2"
+PROVIDER_1_URL=os.getenv("PROVIDER_1_URL")
+PROVIDER_2_URL="api_provider_url_2"
 
 def chatbot_response(user_input, api_key, provider_url):
     headers = {
