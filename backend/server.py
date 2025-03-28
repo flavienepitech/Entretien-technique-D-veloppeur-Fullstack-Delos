@@ -1,9 +1,13 @@
 import os
 from flask import Flask, request, jsonify
+from flask import CORS
 from dotenv import load_dotenv
 import requests
 
+load_dotenv()
+
 app = Flask(__name__)
+CORS(app)
 
 API_KEY_1=os.getenv("API_KEY_1")
 API_KEY_2=os.getenv("API_KEY_2")

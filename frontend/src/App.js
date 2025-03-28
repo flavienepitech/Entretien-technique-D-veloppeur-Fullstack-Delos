@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Tab, Tabs, Form, Button, Col, Nav, Navbar, Container } from 'react-bootstrap';
+import { Tab, Tabs, Form, Button, Nav, Navbar, Container } from 'react-bootstrap';
 import './App.css';
 import SendLogo from './img/icone_envoyer.png';
 
@@ -15,7 +15,7 @@ function App() {
 
     const callConvDataFromDB = async () => {
         try {
-            const response = await axios.post('http://localhost:3080', { acronyms: "" }, {
+            const response = await axios.post('http://localost:5000', { acronyms: "" }, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*',
@@ -31,16 +31,6 @@ function App() {
     const startNewConv = async () => {
         setConvData([...convData, { messages: [] }]);
         setActiveTab((convData.length).toString());
-//        try {
-//            const response = await axios.post('http://localhost:3080/startNewConv', {
-//                // datas
-//            });
-//
-//            const startNewConv = response.data;
-//            setConvData([...convData, startNewConv]);
-//        } catch (error) {
-//            console.error(error);
-//        }
     };
 
     const sendMessage = () => {
@@ -51,7 +41,7 @@ function App() {
         setConvData(updatedConvData);
         setNewMessage('');
 
-        axios.post(`${process.env.REACT_APP_API_URL}/chat`, { message: newMessage })
+        axios.post('http://localhost:5000', { message: newMessage })
             .then(response => {
                 const botResponse = `Chatbot: ${response.data.response}`;
                 const updatedData = [...updatedConvData];
