@@ -11,8 +11,6 @@ services:
       - REACT_APP_API_URL=http://localhost:5000
       - API_KEY_1=${API_KEY_1}
       - API_KEY_2=${API_KEY_2}
-      - PROVIDER_1_URL=${PROVIDER_1_URL}
-      - PROVIDER_2_URL=${PROVIDER_2_URL}
 
   frontend:
     build:
